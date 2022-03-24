@@ -1,0 +1,22 @@
+USE MYSQLPROJECT;
+SELECT * FROM `mysqlproject`.`cab_fare_BEFORE_DELETE`;
+
+
+USE MYSQLPROJECT;
+CREATE TABLE `cab_fare_BEFORE_DELETE`   
+( `CAB_ID` int NOT NULL,
+  `CAB_TYPE` varchar(45) ,
+  `UP_STATION` varchar(200) ,
+  `DOWN_STATION` varchar(200) ,
+  `SEATER` int ,
+  `CAB_FARE` int ,
+  `CAB_AVG_RATE_KM` float8 ,
+  `deletedAt` TIMESTAMP DEFAULT NOW(),
+  PRIMARY KEY (`CAB_ID`,`UP_STATION`,`DOWN_STATION`)
+  );
+  
+  ## CHECK FOR TRIGGER RUN OR NOT 
+  
+  DELETE FROM cab_fare
+  WHERE CAB_ID ='101'
+  AND UP_STATION = 'AGRA'
